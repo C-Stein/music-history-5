@@ -1,0 +1,150 @@
+body {
+  font-size: 1.1em;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+/*********** Nav Bar info **************/
+
+nav {
+  background-color: #ffb4b0;
+}
+ul {
+  list-style-type: none;
+}
+ul li {
+  display: inline;
+}
+
+li:nth-child(n+2)::before {
+  content: " | ";
+}
+.here {
+  text-decoration: none;
+  color: black;
+}
+
+/*********** Library info **************/
+
+.library {
+  background-color: mintcream;
+  flex-grow: 3;
+  -webkit-flex-grow: 3;
+  float: right;
+  margin-left: 3%;
+}
+.songItem {
+  background-color: seashell;
+}
+.songItem:nth-child(2n) {
+  background-color: mintcream;
+}
+/*.library p:first-child {
+  font-weight: bold;
+}*/
+.songItem {
+  text-align: center;
+  padding-left: 20px;
+  margin: 0;
+  padding: 8px 0;
+}
+h2 {
+  color: #785616;
+}
+#more {
+  float: right;
+  margin: 20px;
+  font-size: 1.2em;
+}
+
+#delete {
+  display: inline;
+
+}
+
+/*********** Options Form info **************/
+
+.options {
+  background-color: #4dd7fa;
+  flex-grow: 1;
+  -webkit-flex-grow: 1;
+  float: left;
+}
+.subBtn {
+  width: 60%;
+  margin: 20px 20%;
+  float: left;
+}
+h2, p {
+  text-align: justify;
+}
+nav, .library, .options {
+  border: 2px solid black;
+}
+div {
+  margin-top: 10px;
+}
+select {
+  width: 90%;
+  margin: 0 5% 5px 5%;
+}
+input[type=range] {
+    width: 90%;
+    margin: 0 5%;
+}
+.check1 {
+  float: left;
+  width: 40%;
+  border: none;
+}
+.check2 {
+  float: right;
+  width: 50%;
+  border: none;
+}
+form {
+  padding: 5%;
+}
+.container {
+  display: flex;
+  display: -webkit-flex;
+  margin: 0;
+  padding: 0;
+}
+input[type="range"] {
+  width: 90%;
+}
+/*********** Media Queries **************/
+
+
+@media screen  and (max-width : 660px){
+  body {
+    font-size: 1em;
+  }
+  nav {
+    min-width: 95%;
+    margin: 5px 2.5%;
+  }
+  .container {
+    display: block;
+  }
+  .options {
+    min-width: 95%;
+    display: block;
+     margin: 5px 2.5%;
+  }
+  .library {
+    min-width: 95%;
+    display: block;
+    float: left;
+     margin: 5px 2.5%;
+  }
+input[type=range] {
+    width: 90%;
+    margin: 0 5%;
+ }
+}
+@media screen and (min-width: 661px) and (max-width: 1024px){
+  .check1, .check2 {
+    width: 90%;
+    margin: 0 5%;
+  }
+}

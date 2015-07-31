@@ -1,0 +1,74 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Caitlin's Music History Project</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <nav>
+    <ul>
+      <li><a href="#" class="here">View Music</a></li>
+      <li><a href="#"> Add Music</a></li>
+      <li><a href="#">Profile</a></li>
+    </nav>
+    <div class="container">
+      <div class="options">
+        <form action="sing.html" method="POST">
+          <label for="songLength">Song Length:</label>
+          <br>
+          <input type="range" name="songLength">
+          <br>
+          <label for="artist">Artist:</label>
+          <br>
+          <select name="artist">
+            <option value="guster">Guster</option>
+            <option value="tchaikovsky">Tchaikovsky</option>
+            <option value="barber">Barber</option>
+            <option value="mackelmore">Mackelmore</option>
+            <option value="milesDavis">Miles Davis</option>
+          </select>
+          <br>
+          <label for="album">Album:</label>
+          <br>
+          <select name="album" id="album">
+            <option value="Guster on Ice">Guster on Ice</option>
+            <option value="Symphonies 4,5 and 6">Symphonies 4,5 and 6</option>
+            <option value="Essays for Orchestra">Essays for Orchestra</option>
+            <option value="The Heist">The Heist</option>
+            <option value="Kind of Blue">Kind of Blue</option>
+          </select>
+          <br>
+          <br>
+          <label for="genre">Genre:</label>
+          <br>
+          <div class="check1">
+            <input type="checkbox" name="Genre" value="rock">Rock
+            <br>
+            <input type="checkbox" name="Genre" value="pop">Pop
+            <br>
+            <input type="checkbox" name="Genre" value="blues">Blues
+          </div>
+          <div class="check2">
+            <input type="checkbox" name="Genre" value="classical" class="check">Classical
+            <br>
+            <input type="checkbox" name="Genre" value="jazz">Jazz
+            <br>
+            <input type="checkbox" name="Genre" value="hipHop">Hip Hop
+          </div>
+          <br>
+          <input type="submit" value="Filter" class="subBtn">
+        </form>
+      </div>
+      <div class="library" id="library">
+      <input type="button" value="more songs" id="more">
+      </div>
+    </div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script data-main="javascripts/main" src="bower_components/requirejs/require.js"></script>
+    
+  </body>
+</html>
