@@ -6,7 +6,6 @@
 define(function() {
   var $library = $("#library");
   var $more = $("#more");
-  var $byebye = $(".delete");
 
   return {
     getOutputElement: function() {
@@ -15,8 +14,5 @@ define(function() {
     getMoreButton: function() {
       return $more;
     },
-    getDeleteButton: function() {
-      return $byebye;
-    }
   };
 });

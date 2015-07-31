@@ -1,12 +1,14 @@
 requirejs(
   ["dom-access", "populate-songs", "get-more-songs"], 
   function(dom, populate, get) {
-    dom.getMoreButton();
-    dom.getDeleteButton();
-    console.log(populate.getLoadMusic())
+    console.log("populate.getLoadMusic", populate.getLoadMusic());
     addSongsToDom(populate.getLoadMusic(), dom.getOutputElement());
-    // $more.click(moreMusic);
-    // $(document).on('click', '.delete', (hideSong));
+
+    $("#more").on('click', function() {
+      addSongsToDom(get.getMoreMusic(), dom.getOutputElement())
+    });
+    //dom.getMoreButton().click(get.moreMusic);
+    $(document).on('click', '.delete', (hideSong));
   });
 
   //The main module should then use the return objects from all three 
@@ -20,17 +22,17 @@ requirejs(
     songContent += list[i].artist;
     songContent += " on ";
     songContent += list[i].album;
-    songContent += "     <input type='button' value='delete' class='delete' id='delete" + i + "'>"
+    songContent += " <input type='button' value='delete' class='delete' id='delete" + i + "'>";
     songContent += "</p>";
 
     location.prepend(songContent);
     }
-  };
+  }
 
   function hideSong() {
     var songToDelete = $(this).parent();
     songToDelete.hide().html();
     console.log("hideSong called" + "songtoDelete = " + songToDelete);
-  };
+  }
 
 
