@@ -1,0 +1,24 @@
+{
+    "songs": [
+        {
+            "title": "C is for Cookie",
+            "artist": "Cookie Monster",
+            "album": "Sesame Street Hits"
+        },
+        {
+            "title": "If I Had a Million Dollars",
+            "artist": "Barenaked Ladies",
+            "album": "Rock Spectacle"
+        },
+        {
+            "title": "Another Brick in the Wall",
+            "artist": "Pink Floyd",
+            "album": "The Wall"
+        },
+        {
+            "title": "Mars",
+            "artist": "Holst",
+            "album": "The Planets"
+        }
+    ]
+}

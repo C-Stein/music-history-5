@@ -1,14 +1,19 @@
 requirejs(
   ["dom-access", "populate-songs", "get-more-songs"], 
   function(dom, populate, get) {
-    console.log("populate.getLoadMusic", populate.getLoadMusic());
-    addSongsToDom(populate.getLoadMusic(), dom.getOutputElement());
 
     $("#more").on('click', function() {
-      addSongsToDom(get.getMoreMusic(), dom.getOutputElement())
+      get.moreMusic(function(data) {
+      addSongsToDom(data, dom.getOutputElement());
     });
-    //dom.getMoreButton().click(get.moreMusic);
+  });
+   
     $(document).on('click', '.delete', (hideSong));
+    
+    populate.loadMusic(function(data) {
+      addSongsToDom(data, dom.getOutputElement());
+    });
+
   });
 
   //The main module should then use the return objects from all three 

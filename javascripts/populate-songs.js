@@ -2,26 +2,16 @@
 // ith songs in it. This module should return the array of songs.
 
 
-
-var loadMusic = function()  {
-  $.ajax({
-    url:"javascripts/songs.json", async:false
-  }).done(function(data){
-    var musicContent = data;
-    songs = musicContent.songs;
-    // addSongsToDom(musicContent.songs);
-    console.log("songs", songs);
-      });
-  return songs;
-};
-
-
 define(function() {
-  var songs = [];
+  
   return {
-    getLoadMusic: function() {
-      return loadMusic();
-    }
 
+    loadMusic: function(callback)  {
+      $.ajax({
+      url:"javascripts/songs.json"
+      }).done(function(data){
+      callback.call(this, data.songs);
+      });
+    }
   };
 });
