@@ -26,10 +26,10 @@ li:nth-child(n+2)::before {
 
 .library {
   background-color: mintcream;
-  flex-grow: 3;
+/*  flex-grow: 3;
   -webkit-flex-grow: 3;
   float: right;
-  margin-left: 3%;
+  margin-left: 3%;*/
 }
 .songItem {
   background-color: seashell;
@@ -68,8 +68,8 @@ h2 {
 
 .options {
   background-color: #4dd7fa;
-  flex-grow: 1;
-  -webkit-flex-grow: 1;
+/*  flex-grow: 1;
+  -webkit-flex-grow: 1; */
   float: left;
 }
 .subBtn {
@@ -108,8 +108,8 @@ form {
   padding: 5%;
 }
 .container {
-  display: flex;
-  display: -webkit-flex;
+/*  display: flex;
+  display: -webkit-flex;*/
   margin: 0;
   padding: 0;
 }
@@ -121,23 +121,23 @@ input[type="range"] {
 
 @media screen  and (max-width : 660px){
 
-  nav {
+/*  nav {
     min-width: 95%;
-    margin: 5px 2.5%;
+    margin: 5px 2.5%;*/
   }
-  .container {
+/*  .container {
     display: block;
-  }
-  .options {
+  }*/
+/*  .options {
     min-width: 95%;
     display: block;
-     margin: 5px 2.5%;
+     margin: 5px 2.5%;*/
   }
-  .library {
+/*  .library {
     min-width: 95%;
     display: block;
     float: left;
-     margin: 5px 2.5%;
+     margin: 5px 2.5%;*/
   }
 input[type=range] {
     width: 90%;

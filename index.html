@@ -5,27 +5,21 @@
   <meta charset="utf-8">
   <title>Caitlin's Music History Project</title>
   <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 
 <body>
-    <!-- <nav>
-    <ul>
-      <li><a href="#" class="here">View Music</a></li>
-      <li><a href="#"> Add Music</a></li>
-      <li><a href="#">Profile</a></li>
-    </nav> -->
-    <nav class="navbar navbar-default">
-  <div class="container-fluid">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#"><img src="img/clef-pic.png" width="30" height="30"</a>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="img/clef-pic.png" width="30" height="30"</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,9 +47,9 @@
 
 
 
-
-    <div class="container">
-      <div class="options">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="options col-xs-12 col-sm-4 col-md-4">
         <form action="sing.html" method="POST">
           <label for="songLength">Song Length:</label>
           <br>
@@ -102,8 +96,9 @@
           <input type="submit" value="Filter" class="subBtn">
         </form>
       </div>
-      <div class="library" id="library">
+      <div class="library col-xs-12 col-sm-8 col-md-8" id="library">
       <input type="button" value="more songs" id="more">
+      </div>
       </div>
     </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
