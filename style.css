@@ -1,10 +1,10 @@
 body {
-  font-size: 1.1em;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Georgia, Helvetica, Arial, sans-serif;
 }
 /*********** Nav Bar info **************/
 
-nav {
+
+/*nav {
   background-color: #ffb4b0;
 }
 ul {
@@ -20,7 +20,7 @@ li:nth-child(n+2)::before {
 .here {
   text-decoration: none;
   color: black;
-}
+}*/
 
 /*********** Library info **************/
 
@@ -52,11 +52,15 @@ h2 {
 #more {
   float: right;
   margin: 20px;
-  font-size: 1.2em;
+  font-size: .8em;
+  border-radius: 5px;
 }
 
 #delete {
   display: inline;
+  margin-left: 30px;
+  border-radius: 5px;
+  font-size: .8em;
 
 }
 
@@ -116,9 +120,7 @@ input[type="range"] {
 
 
 @media screen  and (max-width : 660px){
-  body {
-    font-size: 1em;
-  }
+
   nav {
     min-width: 95%;
     margin: 5px 2.5%;
