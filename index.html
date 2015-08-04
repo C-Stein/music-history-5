@@ -11,7 +11,6 @@
 <body>
  <!--  <div class="container"> -->
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -48,8 +47,9 @@
 
 
 
-    <div class="row row-eq-height">
-      <div class="options col-xs-12 col-sm-3 col-md-3 col-sm-height">
+    <div class="container">
+    <div class="row">
+      <div class="options col-sm-3">
         <form action="sing.html" method="POST">
           <label for="songLength">Song Length:</label>
           <br>
@@ -78,25 +78,27 @@
           <br>
           <label for="genre">Genre:</label>
           <br>
-          <div class="check1" class="checkbox">
-            <input type="checkbox" name="Genre" value="rock">Rock
-            <br>
-            <input type="checkbox" name="Genre" value="pop">Pop
-            <br>
-            <input type="checkbox" name="Genre" value="blues">Blues
-          </div>
-          <div class="check2" class="checkbox">
-            <input type="checkbox" name="Genre" value="classical" class="check">Classical
-            <br>
-            <input type="checkbox" name="Genre" value="jazz">Jazz
-            <br>
-            <input type="checkbox" name="Genre" value="hipHop">Hip Hop
+          <div class="row">  
+            <div class="check1 checkbox col-xs-6">
+              <input type="checkbox" name="Genre" value="rock"> Rock
+              <br>
+              <input type="checkbox" name="Genre" value="pop"> Pop
+              <br>
+              <input type="checkbox" name="Genre" value="blues"> Blues
+            </div>
+            <div class="check2 checkbox col-xs-6">
+              <input type="checkbox" name="Genre" value="classical" class="check"> Classical
+              <br>
+              <input type="checkbox" name="Genre" value="jazz"> Jazz
+              <br>
+              <input type="checkbox" name="Genre" value="hipHop"> Hip Hop
+            </div>
           </div>
           <br>
           <input type="submit" value="Filter" class="subBtn">
         </form>
       </div>
-      <div class="library col-xs-12 col-sm-9 col-md-9 col-sm-height" id="library">
+      <div class="library col-sm-8" id="library">
         <input type="button" value="more songs" id="more">
       </div>
     </div>
