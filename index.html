@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <title>Caitlin's Music History Project</title>
   <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="styles/style.css"> 
+  <link rel="stylesheet" type="text/css" href="styles/main.css"> 
 </head>
 
 <body>
+ <!--  <div class="container"> -->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -47,66 +48,59 @@
 
 
 
-  <div class="container">
-    <div class="row">
-      <div class="row-height">
-        <div class="options col-xs-12 col-sm-3 col-md-3 col-sm-height">
-          <div class="inside inside-full-height">
-            <form action="sing.html" method="POST">
-              <label for="songLength">Song Length:</label>
-              <br>
-                <input type="range" name="songLength">
-                <br>
-                <label for="artist">Artist:</label>
-                <br>
-                <select name="artist">
-                  <option value="guster">Guster</option>
-                  <option value="tchaikovsky">Tchaikovsky</option>
-                  <option value="barber">Barber</option>
-                  <option value="mackelmore">Mackelmore</option>
-                  <option value="milesDavis">Miles Davis</option>
-                </select>
-                <br>
-                <label for="album">Album:</label>
-                <br>
-                <select name="album" id="album">
-                  <option value="Guster on Ice">Guster on Ice</option>
-                  <option value="Symphonies 4,5 and 6">Symphonies 4,5 and 6</option>
-                  <option value="Essays for Orchestra">Essays for Orchestra</option>
-                  <option value="The Heist">The Heist</option>
-                  <option value="Kind of Blue">Kind of Blue</option>
-                </select>
-                <br>
-                <br>
-                <label for="genre">Genre:</label>
-                <br>
-                <div class="check1">
-                  <input type="checkbox" name="Genre" value="rock">Rock
-                  <br>
-                  <input type="checkbox" name="Genre" value="pop">Pop
-                  <br>
-                  <input type="checkbox" name="Genre" value="blues">Blues
-                </div>
-                <div class="check2">
-                  <input type="checkbox" name="Genre" value="classical" class="check">Classical
-                  <br>
-                  <input type="checkbox" name="Genre" value="jazz">Jazz
-                  <br>
-                  <input type="checkbox" name="Genre" value="hipHop">Hip Hop
-                </div>
-                <br>
-                <input type="submit" value="Filter" class="subBtn">
-              </form>
-            </div>
+    <div class="row row-eq-height">
+      <div class="options col-xs-12 col-sm-3 col-md-3 col-sm-height">
+        <form action="sing.html" method="POST">
+          <label for="songLength">Song Length:</label>
+          <br>
+          <input type="range" name="songLength">
+          <br>
+          <label for="artist">Artist:</label>
+          <br>
+          <select name="artist" class="form-control">
+            <option value="guster">Guster</option>
+            <option value="tchaikovsky">Tchaikovsky</option>
+            <option value="barber">Barber</option>
+            <option value="mackelmore">Mackelmore</option>
+            <option value="milesDavis">Miles Davis</option>
+          </select>
+          <br>
+          <label for="album">Album:</label>
+          <br>
+          <select name="album" id="album" class="form-control">
+            <option value="Guster on Ice">Guster on Ice</option>
+            <option value="Symphonies 4,5 and 6">Symphonies 4,5 and 6</option>
+            <option value="Essays for Orchestra">Essays for Orchestra</option>
+            <option value="The Heist">The Heist</option>
+            <option value="Kind of Blue">Kind of Blue</option>
+          </select>
+          <br>
+          <br>
+          <label for="genre">Genre:</label>
+          <br>
+          <div class="check1">
+            <input type="checkbox" name="Genre" value="rock">Rock
+            <br>
+            <input type="checkbox" name="Genre" value="pop">Pop
+            <br>
+            <input type="checkbox" name="Genre" value="blues">Blues
           </div>
+          <div class="check2">
+            <input type="checkbox" name="Genre" value="classical" class="check">Classical
+            <br>
+            <input type="checkbox" name="Genre" value="jazz">Jazz
+            <br>
+            <input type="checkbox" name="Genre" value="hipHop">Hip Hop
           </div>
-        <div class="library col-xs-12 col-sm-9 col-md-9 col-sm-height" id="library">
-          <div class="inside inside-full-height">
-            <input type="button" value="more songs" id="more">
-        </div>
+          <br>
+          <input type="submit" value="Filter" class="subBtn">
+        </form>
+      </div>
+      <div class="library col-xs-12 col-sm-9 col-md-9 col-sm-height" id="library">
+        <input type="button" value="more songs" id="more">
       </div>
     </div>
-  </div>
+ <!--  </div> -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script data-main="javascripts/main" src="bower_components/requirejs/require.js"></script>
