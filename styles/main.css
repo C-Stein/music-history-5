@@ -267,9 +267,56 @@ input[type=range]:focus::-ms-fill-upper {
 
 input[type=button] {
   padding: 5px;
-  background-color: #dcdcdc;
-  border: 1px solid #666;
+  background-color: white;
+  border: 2px solid #ff3caa;
   color: #000;
+  border-radius: 10px;
   text-decoration: none; }
+
+input[type=button]:hover {
+  padding: 5px;
+  background-color: white;
+  border: 2px solid #ff3caa;
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  animation-name: bounce;
+  animation-duration: 1s; }
+
+input[type=button]:active {
+  padding: 5px;
+  background-color: #f8f74b;
+  border: 2px solid #ff3caa;
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  transform: scale(1.5); }
+
+@keyframes bounce {
+  0% {
+    transform: translateY(-97%); }
+  40% {
+    transform: translateY(0%);
+    padding-bottom: 6px; }
+  50% {
+    transform: translateY(-30%); }
+  70% {
+    transform: translateY(0%);
+    padding-bottom: 7px; }
+  80% {
+    transform: translateY(-15%); }
+  90% {
+    transform: translateY(0%);
+    padding-bottom: 8px; }
+  95% {
+    transform: translateY(-7%); }
+  97% {
+    transform: translateY(0%);
+    padding-bottom: 9px; }
+  99% {
+    transform: translateY(-3%); }
+  100% {
+    transform: translateY(0);
+    padding-bottom: 9px; } }
 
 /*# sourceMappingURL=main.css.map */

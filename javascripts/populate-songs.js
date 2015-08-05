@@ -10,7 +10,7 @@ define(function() {
       $.ajax({
       url:"javascripts/songs.json"
       }).done(function(data){
-      callback.call(this, data.songs);
+      callback.call(this, data);
       });
     }
   };

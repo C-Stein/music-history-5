@@ -11,7 +11,7 @@ define(function() {
       url:"javascripts/moreSongs.json"
       }).done(function(data){
       $("#more").hide();
-      callback.call(this, data.songs);
+      callback.call(this, data);
       });
     }
   };

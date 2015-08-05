@@ -3,7 +3,7 @@
 
 
 
-define(function() {
+define(["jquery"], function($) {
   var $library = $("#library");
   var $more = $("#more");
 
