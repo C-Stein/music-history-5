@@ -1,0 +1,111 @@
+$font-stack:    Georgia, Helvetica, Arial, sans-serif;
+$primary-color: #333;
+$color1: #c3c6fa;
+$color2: #f8f74b;
+$color3: #4affc2;
+$color4: #ff3caa;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  font-size: 1.6em;
+  background:
+linear-gradient(324deg, $color2 4%,   transparent 4%) -70px 43px,
+linear-gradient( 36deg, $color2 4%,   transparent 4%) 30px 43px,
+linear-gradient( 72deg, $color4 8.5%, transparent 8.5%) 30px 43px,
+linear-gradient(288deg, $color4 8.5%, transparent 8.5%) -70px 43px,
+linear-gradient(216deg, $color4 7.5%, transparent 7.5%) -70px 23px,
+linear-gradient(144deg, $color4 7.5%, transparent 7.5%) 30px 23px,
+
+linear-gradient(324deg, $color2 4%,   transparent 4%) -20px 93px,
+linear-gradient( 36deg, $color2 4%,   transparent 4%) 80px 93px,
+linear-gradient( 72deg, $color4 8.5%, transparent 8.5%) 80px 93px,
+linear-gradient(288deg, $color4 8.5%, transparent 8.5%) -20px 93px,
+linear-gradient(216deg, $color4 7.5%, transparent 7.5%) -20px 73px,
+linear-gradient(144deg, $color4 7.5%, transparent 7.5%) 80px 73px;
+background-color: $color2;
+background-size: 100px 100px;
+}
+
+.library {
+  background-color: $color1;
+  margin-right: 1%;
+  padding: 15px;
+}
+
+.songItem {
+  background-color: $color1;
+}
+.songItem:nth-of-type(2n) {
+  background-color: white;
+}
+
+.songItem {
+  text-align: center;
+  margin: 0;
+  padding: 8px 0;
+}
+
+#more {
+  float: right;
+  margin: 20px;
+  font-size: .8em;
+  border-radius: 5px;
+}
+
+#delete {
+  display: inline;
+  margin-left: 30px;
+  border-radius: 5px;
+  font-size: .7em;
+
+}
+
+/*********** Options Form info **************/
+
+.options {
+  background-color: $color3;
+  margin: 0 1%;
+}
+.subBtn {
+  width: 60%;
+  margin: 20px 20%;
+}
+
+.navbar, .library, .options {
+  border: 2px solid black;
+}
+
+select {
+  width: 90%;
+  margin: 0 5% 5px 5%;
+}
+input[type=range] {
+  width: 90%;
+  margin: 0 5%;
+}
+
+form {
+  padding: 5%;
+}
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+}
+
+@import 'nav';
+@import 'slider-styles';
+@import 'buttons';
+
+
+
+
+
+
+
+
+
+
+

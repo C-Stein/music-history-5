@@ -21,6 +21,16 @@ requirejs(
       require(['hbs!../templates/songs'], function(songTemplate) {
       $("#library").prepend(songTemplate(data));
       });
+      
+      require(['hbs!../templates/albums'], function(formTemplate) {
+      $("#albumList").html(formTemplate(data));
+      });
+
+      require(['hbs!../templates/artists'], function(formTemplate) {
+      $("#artistList").html(formTemplate(data));
+      });
+
+
     });
 
     $("#more").on('click', function() {
