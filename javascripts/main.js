@@ -13,6 +13,8 @@ requirejs.config({
 requirejs(
   ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs"], 
   function($, Handlebars, bootstrap, dom, populate, get) {
+  
+    $(document).on('click', '.delete', (hideSong));
     
     populate.loadMusic(function(data) {
       // addSongsToDom(data, dom.getOutputElement());
@@ -32,7 +34,6 @@ requirejs(
       });
     });
   
-    $(document).on('click', '.delete', (hideSong));
 
   });
 });
