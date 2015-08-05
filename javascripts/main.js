@@ -23,11 +23,11 @@ requirejs(
       });
       
       require(['hbs!../templates/albums'], function(formTemplate) {
-      $("#albumList").html(formTemplate(data));
+      $("#album").append(formTemplate(data));
       });
 
       require(['hbs!../templates/artists'], function(formTemplate) {
-      $("#artistList").html(formTemplate(data));
+      $("#artists").append(formTemplate(data));
       });
 
 
@@ -40,7 +40,14 @@ requirejs(
       require(['hbs!../templates/songs'], function(songTemplate) {
         console.log(songTemplate);
       $("#library").append(songTemplate(data));
+      });
+      
+      require(['hbs!../templates/albums'], function(formTemplate) {
+      $("#album").append(formTemplate(data));
+      });
 
+      require(['hbs!../templates/artists'], function(formTemplate) {
+      $("#artists").append(formTemplate(data));
       });
     });
   
