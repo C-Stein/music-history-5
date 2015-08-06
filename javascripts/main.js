@@ -11,8 +11,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs"], 
-  function($, Handlebars, bootstrap, dom, populate, get) {
+  ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs", "addMusic"], 
+  function($, Handlebars, bootstrap, dom, populate, get, addMusic) {
   
     $(document).on('click', '.delete', (hideSong));
     
@@ -29,7 +29,21 @@ requirejs(
       require(['hbs!../templates/artists'], function(formTemplate) {
       $("#artists").append(formTemplate(data));
       });
+    
+    });
 
+    $("#addMusicButton").on("click", function(){
+      var musicData = {};
+      //grab values from form and store in object
+        musicData = {
+          "title": $("#addTitle").val(),
+          "artist": $("#addArtist").val(),
+          "album": $("#addAlbum").val(),
+        };
+  
+        musicData = JSON.stringify(musicData);
+        console.log("stringified musicData", musicData);
+        addMusic.addMusic(musicData);
 
     });
 
@@ -55,23 +69,6 @@ requirejs(
   // });
 });
 
-  //The main module should then use the return objects from all three 
-  //  dependencies to populate your song list.
-
-  // function addSongsToDom(list, location) {
-  //   for (var i = 0; i < list.length; i++) {
-  //   var songContent = "<p class='songItem'>";
-  //   songContent += list[i].title;
-  //   songContent +=  " by ";
-  //   songContent += list[i].artist;
-  //   songContent += " on ";
-  //   songContent += list[i].album;
-  //   songContent += " <input type='button' value='delete' class='delete' id='delete'" + i + "'>";
-  //   songContent += "</p>";
-
-  //   location.prepend(songContent);
-  //   }
-  // }
 
   function hideSong() {
     var songToDelete = $(this).parent();
