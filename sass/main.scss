@@ -46,20 +46,7 @@ background-size: 100px 100px;
   padding: 8px 0;
 }
 
-#more {
-  float: right;
-  margin: 20px;
-  font-size: .8em;
-  border-radius: 5px;
-}
 
-#delete {
-  display: inline;
-  margin-left: 30px;
-  border-radius: 5px;
-  font-size: .7em;
-
-}
 
 /*********** Options Form info **************/
 
@@ -95,9 +82,19 @@ form {
   display:         flex;
 }
 
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: $color4;
+}
+
 @import 'nav';
 @import 'slider-styles';
 @import 'buttons';
+@import 'addMusic';
 
 
 

@@ -70,3 +70,15 @@ input[type=button]:active {
     transform: scale3d(1, 1, 1);
   }
 }
+#more {
+  float: right;
+  margin: 20px;
+  font-size: .8em;
+}
+
+.delete {
+  display: inline;
+  margin-left: 30px;
+  font-size: .7em;
+
+}
