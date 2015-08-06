@@ -1,0 +1,59 @@
+{
+    "songs": [
+        {
+            "title": "Legs",
+            "artist": "ZZTop",
+            "album": "Eliminator"
+        },
+        {
+            "title": "The Logical Song",
+            "artist": "Supertramp",
+            "album": "Breakfast in America"
+        },
+        {
+            "title": "Another Brick in the Wall",
+            "artist": "Pink Floyd",
+            "album": "The Wall"
+        },
+        {
+            "title": "Welcome to the Jungle",
+            "artist": "Guns and Roses",
+            "album": "Appetite for Destruction"
+        },
+        {
+            "title": "Ironic",
+            "artist": "Alanis Morisette",
+            "album": "Jagged Little Pill"
+        },
+        {
+            "title": "Come Downstairs and Say Hello",
+            "artist": "Guster",
+            "album": "Guster on Ice"
+        },
+        {
+            "title": "So What",
+            "artist": "Miles Davis",
+            "album": "Kind of Blue"
+        },
+        {
+            "title": "C is for Cookie",
+            "artist": "Cookie Monster",
+            "album": "Sesame Street Hits"
+        },
+        {
+            "title": "If I Had a Million Dollars",
+            "artist": "Barenaked Ladies",
+            "album": "Rock Spectacle"
+        },
+        {
+            "title": "Another Brick in the Wall",
+            "artist": "Pink Floyd",
+            "album": "The Wall"
+        },
+        {
+            "title": "Mars",
+            "artist": "Holst",
+            "album": "The Planets"
+        }
+    ]
+}

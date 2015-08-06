@@ -33,26 +33,26 @@ requirejs(
 
     });
 
-    $("#more").on('click', function() {
-      console.log("more button pushsed");
-      get.moreMusic(function(data) {
-      //addSongsToDom(data, dom.getOutputElement());
-      require(['hbs!../templates/songs'], function(songTemplate) {
-        console.log(songTemplate);
-      $("#library").append(songTemplate(data));
-      });
+    // $("#more").on('click', function() {
+    //   console.log("more button pushsed");
+    //   get.moreMusic(function(data) {
+    //   //addSongsToDom(data, dom.getOutputElement());
+    //   require(['hbs!../templates/songs'], function(songTemplate) {
+    //     console.log(songTemplate);
+    //   $("#library").append(songTemplate(data));
+    //   });
       
-      require(['hbs!../templates/albums'], function(formTemplate) {
-      $("#album").append(formTemplate(data));
-      });
+    //   require(['hbs!../templates/albums'], function(formTemplate) {
+    //   $("#album").append(formTemplate(data));
+    //   });
 
-      require(['hbs!../templates/artists'], function(formTemplate) {
-      $("#artists").append(formTemplate(data));
-      });
-    });
+    //   require(['hbs!../templates/artists'], function(formTemplate) {
+    //   $("#artists").append(formTemplate(data));
+    //   });
+  //   });
   
 
-  });
+  // });
 });
 
   //The main module should then use the return objects from all three 

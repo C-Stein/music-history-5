@@ -2,17 +2,17 @@
 // file with songs in it. This module should return the array of songs
 
 
-define(function() {
+// define(function() {
   
-  return {
+//   return {
 
-    moreMusic: function(callback)  {
-      $.ajax({
-      url:"javascripts/moreSongs.json"
-      }).done(function(data){
-      $("#more").hide();
-      callback.call(this, data);
-      });
-    }
-  };
-});
+//     moreMusic: function(callback)  {
+//       $.ajax({
+//       url:"javascripts/moreSongs.json"
+//       }).done(function(data){
+//       $("#more").hide();
+//       callback.call(this, data);
+//       });
+//     }
+//   };
+// });

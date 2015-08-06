@@ -8,7 +8,7 @@ define(function() {
 
     loadMusic: function(callback)  {
       $.ajax({
-      url:"javascripts/songs.json"
+      url:"https://vivid-heat-717.firebaseio.com/.json"
       }).done(function(data){
       callback.call(this, data);
       });
