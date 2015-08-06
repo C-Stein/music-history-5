@@ -9,24 +9,23 @@
 </head>
 
 <body>
- 
   <nav class="navbar navbar-default">
     <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Caitlin's Music App</a>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Caitlin's Music App</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.html">View Music<span class="sr-only">(current)</span></a></li>
-        <li><a href="addMusic.html">Add Music</a></li>
+        <li><a href="index.html">View Music<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="addMusic.html">Add Music</a></li>
         <li><a href="profile.html">Profile</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -34,7 +33,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="index.html">View Music</a></li>
-            <li><a href="addMusic.html">Add Music</a></li>
+            <li><a href="addmusic.html">Add Music</a></li>
             <li><a href="profile.html">Profile</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Close Application</a></li>
@@ -42,33 +41,22 @@
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-    <div class="container">
-    <div class="row">
-      <div class="options col-sm-3">
-        <form action="sing.html" method="POST">
-          <label for="songLength">Song Length:</label>
-          <br>
-          <input type="range" name="songLength">
+  </nav>
+  <div class="formInput col-sm-10 col-md-offset-1">
+    <h2>Add A Song Here</h2>
+    <form>
+      <div class="row">
+        <div class="col-xs-6">
+          <label for="title">Title:</label>
+          <input type="text" name="title">
           <label for="artist">Artist:</label>
-          <div id="artistList">
-          <select name="artist" id="artists" class="form-control">
-   
-          </select>
-          </div>
-
-          <br>
+          <input type="text" name="artist">
           <label for="album">Album:</label>
-          <div id="albumList">
-            <select name="album" id="album" class="form-control">
-
-            </select>
-          </div>
+          <input type="text" name="album">
+        </div> 
+        <div class="col-xs-6"> 
           <label for="genre">Genre:</label>
+          <aside>as if that means anything at all</aside>
           <div class="row">  
             <div class="check1 checkbox col-xs-6">
               <input type="checkbox" name="Genre" value="rock"> Rock
@@ -85,21 +73,17 @@
               <input type="checkbox" name="Genre" value="hipHop"> Hip Hop
             </div>
           </div>
-          <br>
-          <input type="button" value="Filter" class="subBtn">
-        </form>
-      </div>
-      <div class="library col-sm-8" id="library">
-        <!-- <input type="button" value="more songs" id="more"> -->
-      </div>
-    </div>
- <!--  </div> -->
- <!--  <footer class="footer">
-    <div class="container">
-      <p>Footer Text</p>
-    </div> -->
-<!--   </footer> -->
-  <script data-main="javascripts/main" src="bower_components/requirejs/require.js"></script>
-    
+        </div>
+      </div>  
+    </form>
+  </div>
+
+
+
+
+
+
+
+  <script data-main="javascripts/main" src="bower_components/requirejs/require.js"></script>  
 </body>
 </html>
