@@ -2,17 +2,28 @@ requirejs.config({
   baseUrl: './javascripts',
   paths: {
     'jquery': '../bower_components/jquery/dist/jquery.min',
+    'firebase': '/bower_components/firebase/firebase',
+    'lodash': '/bower_components/lodash/lodash.min',
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase': {
+      exports: 'Firebase'
+    }
   }
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs", "addMusic"], 
-  function($, Handlebars, bootstrap, dom, populate, get, addMusic) {
+  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs", "addMusic", "firebase"], 
+  function($, _, Handlebars, bootstrap, dom, populate, get, addMusic, _firebase) {
+  
+    var myFirebaseRef = new Firebase("https://vivid-heat-717.firebaseio.com/");
+    //changes your library on the fly when changes happen on firebase
+    myFirebaseRef.child("songs").on("value", function(snapshot) {
+    console.log(snapshot.val());  
+    });
   
     var loadedSongs;
 
