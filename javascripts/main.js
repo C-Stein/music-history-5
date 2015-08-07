@@ -18,19 +18,21 @@ requirejs.config({
 requirejs(
   ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs", "addMusic", "firebase"], 
   function($, _, Handlebars, bootstrap, dom, populate, get, addMusic, _firebase) {
-  
+    var loadedSongs;
     var myFirebaseRef = new Firebase("https://vivid-heat-717.firebaseio.com/");
     //changes your library on the fly when changes happen on firebase
-    myFirebaseRef.child("songs").on("value", function(snapshot) {
-    console.log(snapshot.val());  
+    myFirebaseRef.on("value", function(snapshot) {
+      console.log(snapshot.val());  
+      loadedSongs = snapshot.val();
+      loadSongs(loadedSongs);
     });
-  
-    var loadedSongs;
+
 
     $(document).on('click', '.delete', (hideSong));
     
-    populate.loadMusic(function(data) {
-      loadedSongs = data;
+    function loadSongs(data) {
+      console.log("loadSongs called");
+
       require(['hbs!../templates/songs'], function(songTemplate) {
       $("#library").prepend(songTemplate(data));
       });
@@ -42,7 +44,8 @@ requirejs(
       require(['hbs!../templates/artists'], function(formTemplate) {
       $("#selectedArtist").append(formTemplate(data));
       });
-    });
+    }
+
 
   $("#addMusicButton").on("click", function(){
     var musicData = {};
