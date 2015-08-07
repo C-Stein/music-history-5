@@ -1,7 +1,7 @@
 
   {{#each songs}}
   <p class='songItem'>
-    {{title}} by {{artist}} on {{album}} 
+    {{title}} by <span class="artist">{{artist}}</span> on <span class="album">{{album}}</span> 
     <input type='button' value='delete' class='delete'>
   </p>
   {{/each}}

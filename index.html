@@ -56,7 +56,7 @@
           <input type="range" name="songLength">
           <label for="artist">Artist:</label>
           <div id="artistList">
-          <select name="artist" id="artists" class="form-control">
+          <select name="artist" id="selectedArtist" class="form-control">
    
           </select>
           </div>
@@ -64,7 +64,7 @@
           <br>
           <label for="album">Album:</label>
           <div id="albumList">
-            <select name="album" id="album" class="form-control">
+            <select name="album" id="selectedAlbum" class="form-control">
 
             </select>
           </div>
@@ -86,7 +86,7 @@
             </div>
           </div>
           <br>
-          <input type="button" value="Filter" class="subBtn">
+          <input type="button" value="Filter" id="filter" class="subBtn">
         </form>
       </div>
       <div class="library col-sm-8" id="library">
