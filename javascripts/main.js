@@ -24,10 +24,11 @@ requirejs(
     //changes your library on the fly when changes happen on firebase
     
     myFirebaseRef.child('songs').on("value", function(snapshot) {
-      console.log(snapshot.val());  
+   
       loadedSongs = snapshot.val();
       loadSongs(loadedSongs);
-      loadArtistList(unique.getUniqueArtistList(loadedSongs));
+      var uniqueArtistList = unique.getUniqueArtistList(snapshot);
+      loadArtistList(uniqueArtistList);
       for (var key in loadedSongs) {
         allSongsArray[allSongsArray.length] = loadedSongs[key];
       }
@@ -69,6 +70,9 @@ requirejs(
       musicData = JSON.stringify(musicData);
       console.log("stringified musicData", musicData);
       addMusic.addMusic(musicData);
+      $("#addTitle").val("");
+      $("#addArtist").val("");
+      $("#addAlbum").val("");
   });
 
   
