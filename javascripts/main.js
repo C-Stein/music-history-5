@@ -17,8 +17,8 @@ requirejs.config({
 
     var allSongsArray = [];
 requirejs(
-  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs", "addMusic", "firebase"], 
-  function($, _, Handlebars, bootstrap, dom, populate, get, addMusic, _firebase) {
+  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter"], 
+  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter) {
     var loadedSongs;
     var myFirebaseRef = new Firebase("https://vivid-heat-717.firebaseio.com/");
     //changes your library on the fly when changes happen on firebase
@@ -69,11 +69,9 @@ requirejs(
   $("#filter").on("click", function(){
     var selectedArtist = $("#selectedArtist").val();
     var selectedAlbum = $("#selectedAlbum").val();
-    console.log("selectedArtist", selectedArtist, "selectedAlbum", selectedAlbum);
-      filter2 (selectedArtist, selectedAlbum);
+      filter.filterSongs (selectedArtist, selectedAlbum);
     });
     
-});
 
 
   function hideSong() {
@@ -81,50 +79,8 @@ requirejs(
     songToDelete.hide().html();
     console.log("hideSong called" + "songtoDelete = " + songToDelete);
   }
+});
 
-  function filterSongs(a, b) {
-    var arrayOfArtists = [];
-    _.findKey(allSongsArray[0], function(artist) {
-      arrayOfArtists.push(artist.artist);
-    });
-    var arrayOfAlbums = [];
-    _.findKey(allSongsArray[0], function(album) {
-      arrayOfAlbums.push(album.album);
-    });
-  
-   for (var i = 0; i < arrayOfAlbums.length; i++) {
-    if (b !== arrayOfAlbums[i]) {
-      $($(".album").parent()[i]).hide();
-    } else {
-      $($(".album").parent()[i]).show();
-    }
-   }
-  for (var x = 0; i < arrayOfArtists.length; x++) {
-    if (x !== arrayOfArtists[x]) {
-      $($(".artist").parent()[x]).hide();
-    } else {
-      $($(".artist").parent()[x]).show();
-    }
-   }
-  }
 
-  function filter2 (selectedartist, selectedalbum) {
-    _.find($(".artist"), function(match){
-        
-      if (selectedartist != $(match).text()) {
-        $(match).parent().hide();
-      } else {
-        $(match).parent().show();
-      }
-  }), "artist";
-       _.find($(".album"), function(match){
-        
-      if (selectedalbum != $(match).text()) {
-        $(match).parent().hide();
-      } else {
-        $(match).parent().show();
-      }
-  }), "album";
-}
   
 
