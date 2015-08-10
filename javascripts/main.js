@@ -15,6 +15,7 @@ requirejs.config({
   }
 });
 
+    var allSongsArray = [];
 requirejs(
   ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "populate-songs", "get-more-songs", "addMusic", "firebase"], 
   function($, _, Handlebars, bootstrap, dom, populate, get, addMusic, _firebase) {
@@ -25,13 +26,16 @@ requirejs(
       console.log(snapshot.val());  
       loadedSongs = snapshot.val();
       loadSongs(loadedSongs);
+      for (var key in loadedSongs) {
+        allSongsArray[allSongsArray.length] = loadedSongs[key];
+      }
     });
+
 
 
     $(document).on('click', '.delete', (hideSong));
     
     function loadSongs(data) {
-      console.log("loadSongs called");
 
       require(['hbs!../templates/songs'], function(songTemplate) {
       $("#library").prepend(songTemplate(data));
@@ -66,10 +70,8 @@ requirejs(
     var selectedArtist = $("#selectedArtist").val();
     var selectedAlbum = $("#selectedAlbum").val();
     console.log("selectedArtist", selectedArtist, "selectedAlbum", selectedAlbum);
-
-
-      filterSongs($(".artist"), selectedArtist);
-      filterSongs($(".album"), selectedAlbum);
+      // filterSongs($(".artist"), selectedArtist);
+      filterSongs(selectedArtist, selectedAlbum);
     });
     
 });
@@ -81,21 +83,32 @@ requirejs(
     console.log("hideSong called" + "songtoDelete = " + songToDelete);
   }
 
-  function filterSongs(filterBy, selectedItem) {
-    filterBy.each(function(index, value) {
-      var currentArtist = $(value).html();
-      var currentArtistParent = $(value);
-      console.log(currentArtist);
-      if (currentArtist !== selectedItem) {
-        $(currentArtistParent).parent().hide();
-        //$('.match-height').matchHeight();
-      } else {
-        $(currentArtistParent).parent().show();
-        $(currentArtistParent).parent().next().show();
-        //$('.match-height').matchHeight();
-      }
+  function filterSongs(a, b) {
+    var arrayOfArtists = [];
+    _.findKey(allSongsArray[0], function(artist) {
+      arrayOfArtists.push(artist.artist);
     });
-  }
+    var arrayOfAlbums = [];
+    _.findKey(allSongsArray[0], function(album) {
+      arrayOfAlbums.push(album.album);
+    });
+  
+   for (var i = 0; i < arrayOfAlbums.length; i++) {
+    if (b !== arrayOfAlbums[i]) {
+      console.log(b, arrayOfAlbums[i]);
+      $($(".album").parent()[i]).hide();
+    } else {
+      $($(".album").parent()[i]).show();
+    }
+   }
+  for (var x = 0; i < arrayOfArtists.length; x++) {
+    if (x !== arrayOfArtists[x]) {
+      $($(".artist").parent()[x]).hide();
+    } else {
+      $($(".artist").parent()[x]).show();
+    }
+   }
 
+  }
   
 
