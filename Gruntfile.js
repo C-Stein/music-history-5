@@ -25,4 +25,5 @@ module.exports = function(grunt) {
 
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.registerTask('default', ['jshint', 'sass', 'watch']);
+  grunt.registerTask('sassit', ['sass', 'watch']);
 };
