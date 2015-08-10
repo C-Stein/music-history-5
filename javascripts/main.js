@@ -17,18 +17,22 @@ requirejs.config({
 
     var allSongsArray = [];
 requirejs(
-  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter"], 
-  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter) {
+  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists"], 
+  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique) {
     var loadedSongs;
     var myFirebaseRef = new Firebase("https://vivid-heat-717.firebaseio.com/");
     //changes your library on the fly when changes happen on firebase
-    myFirebaseRef.on("value", function(snapshot) {
+    
+    myFirebaseRef.child('songs').on("value", function(snapshot) {
       console.log(snapshot.val());  
       loadedSongs = snapshot.val();
       loadSongs(loadedSongs);
+      loadArtistList(unique.getUniqueArtistList(loadedSongs));
       for (var key in loadedSongs) {
         allSongsArray[allSongsArray.length] = loadedSongs[key];
       }
+      console.log("allSongsArray", allSongsArray);
+
     });
 
 
@@ -38,15 +42,17 @@ requirejs(
     function loadSongs(data) {
 
       require(['hbs!../templates/songs'], function(songTemplate) {
-      $("#library").prepend(songTemplate(data));
+      $("#library").prepend(songTemplate({songs: data}));
       });
       
       require(['hbs!../templates/albums'], function(formTemplate) {
-      $("#selectedAlbum").append(formTemplate(data));
+      $("#selectedAlbum").append(formTemplate({songs: data}));
       });
-
+    }
+     
+    function loadArtistList(data) {
       require(['hbs!../templates/artists'], function(formTemplate) {
-      $("#selectedArtist").append(formTemplate(data));
+      $("#selectedArtist").append(formTemplate({songs: data}));
       });
     }
 
@@ -63,14 +69,14 @@ requirejs(
       musicData = JSON.stringify(musicData);
       console.log("stringified musicData", musicData);
       addMusic.addMusic(musicData);
-    });
+  });
 
   
   $("#filter").on("click", function(){
     var selectedArtist = $("#selectedArtist").val();
     var selectedAlbum = $("#selectedAlbum").val();
       filter.filterSongs (selectedArtist, selectedAlbum);
-    });
+  });
     
 
 
@@ -79,6 +85,7 @@ requirejs(
     songToDelete.hide().html();
     console.log("hideSong called" + "songtoDelete = " + songToDelete);
   }
+
 });
 
 
