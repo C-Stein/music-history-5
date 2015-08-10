@@ -28,6 +28,8 @@ requirejs(
       loadedSongs = snapshot.val();
       loadSongs(loadedSongs);
       var uniqueArtistList = unique.getUniqueArtistList(snapshot);
+      var uniqueAlbumList = unique.getUniqueAlbumList(snapshot);
+      loadAlbumList(uniqueAlbumList);
       loadArtistList(uniqueArtistList);
       for (var key in loadedSongs) {
         allSongsArray[allSongsArray.length] = loadedSongs[key];
@@ -45,7 +47,9 @@ requirejs(
       require(['hbs!../templates/songs'], function(songTemplate) {
       $("#library").prepend(songTemplate({songs: data}));
       });
+    }
       
+    function loadAlbumList(data) {
       require(['hbs!../templates/albums'], function(formTemplate) {
       $("#selectedAlbum").append(formTemplate({songs: data}));
       });
