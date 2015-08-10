@@ -70,8 +70,7 @@ requirejs(
     var selectedArtist = $("#selectedArtist").val();
     var selectedAlbum = $("#selectedAlbum").val();
     console.log("selectedArtist", selectedArtist, "selectedAlbum", selectedAlbum);
-      // filterSongs($(".artist"), selectedArtist);
-      filterSongs(selectedArtist, selectedAlbum);
+      filter2 (selectedArtist, selectedAlbum);
     });
     
 });
@@ -95,7 +94,6 @@ requirejs(
   
    for (var i = 0; i < arrayOfAlbums.length; i++) {
     if (b !== arrayOfAlbums[i]) {
-      console.log(b, arrayOfAlbums[i]);
       $($(".album").parent()[i]).hide();
     } else {
       $($(".album").parent()[i]).show();
@@ -108,7 +106,25 @@ requirejs(
       $($(".artist").parent()[x]).show();
     }
    }
-
   }
+
+  function filter2 (selectedartist, selectedalbum) {
+    _.find($(".artist"), function(match){
+        
+      if (selectedartist != $(match).text()) {
+        $(match).parent().hide();
+      } else {
+        $(match).parent().show();
+      }
+  }), "artist";
+       _.find($(".album"), function(match){
+        
+      if (selectedalbum != $(match).text()) {
+        $(match).parent().hide();
+      } else {
+        $(match).parent().show();
+      }
+  }), "album";
+}
   
 
