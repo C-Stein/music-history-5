@@ -12,7 +12,7 @@ define(function() {
                           .uniq("artist")
                           .pluck("artist")
                           .value();
-    console.log("uniqueArtists", uniqueArtists);
+    //console.log("uniqueArtists", uniqueArtists);
     return uniqueArtists;
 
     }
@@ -27,7 +27,7 @@ define(function() {
                           .uniq("album")
                           .pluck("album")
                           .value();
-    console.log("uniqueAlbums", uniqueAlbums);
+    //console.log("uniqueAlbums", uniqueAlbums);
     return uniqueAlbums;
 
     }

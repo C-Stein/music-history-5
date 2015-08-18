@@ -1,0 +1,36 @@
+To Do LIst:
+
+seperate filter by album and filter by artist
+fix filter by artist <--- maybe add diabled option at top
+add placeholder text for empty option
+why are there 50 songs in the allSongsArray
+
+
+
+
+function to delte songs from firebase:
+define(function() {
+ return {
+   delete: function(argument) { /// argument is the URL I got from the _.findKey function I posted earlier
+     $.ajax({
+              url: "https://blistering-torch-3779.firebaseio.com/songs/" + argument + ".json",
+              method: "DELETE",
+          });
+   }
+ };
+});
+
+
+
+old filter function 
+  // filterBy.each(function(index, value) {
+    //   var currentArtist = $(value).html();
+    //   var currentArtistParent = $(value);
+    //   console.log(currentArtist);
+    //   if (currentArtist !== selectedItem) {
+    //     $(currentArtistParent).parent().hide();
+    //   } else {
+    //     $(currentArtistParent).parent().show();
+    //     $(currentArtistParent).parent().next().show();
+    //   }
+    // });

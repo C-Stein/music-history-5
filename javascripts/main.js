@@ -5,7 +5,8 @@ requirejs.config({
     'firebase': '/bower_components/firebase/firebase',
     'lodash': '/bower_components/lodash/lodash.min',
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
-    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min'
+    'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
+    'q': '../bower_components/q/q'
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -17,8 +18,26 @@ requirejs.config({
 
     var allSongsArray = [];
 requirejs(
-  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists"], 
-  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique) {
+  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists", "populate-songs", "get-more-songs", "q", "deleteButton"], 
+  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique, populateSongs, getMoreSongs, Q, deleteButton) {
+    
+    var firstListOfSongs = populateSongs();
+    var allSongs = [];
+    firstListOfSongs
+      .then(function(firstSongs){
+        for (var i = 0; i < firstSongs.songs.length; i++) {
+          allSongs.push(firstSongs.songs[i]);
+        }
+        return getMoreSongs();
+    })
+        .then(function(secondSongs){
+          for (var i = 0; i < secondSongs.songs.length; i++) {
+          allSongs.push(secondSongs.songs[i]);
+        }
+        })
+      .fail()
+      .done();
+
     var loadedSongs;
     var myFirebaseRef = new Firebase("https://vivid-heat-717.firebaseio.com/");
     //changes your library on the fly when changes happen on firebase
@@ -27,10 +46,13 @@ requirejs(
    
       loadedSongs = snapshot.val();
       loadSongs(loadedSongs);
-      var uniqueArtistList = unique.getUniqueArtistList(snapshot);
+
       var uniqueAlbumList = unique.getUniqueAlbumList(snapshot);
       loadAlbumList(uniqueAlbumList);
+      
+      var uniqueArtistList = unique.getUniqueArtistList(snapshot);
       loadArtistList(uniqueArtistList);
+
       for (var key in loadedSongs) {
         allSongsArray[allSongsArray.length] = loadedSongs[key];
       }
@@ -64,6 +86,8 @@ requirejs(
 
   $("#addMusicButton").on("click", function(){
     var musicData = {};
+    var addMusicFunction = addMusic(musicData);
+    console.log( typeof addMusicFunction);
     //grab values from form and store in object
       musicData = {
         "title": $("#addTitle").val(),
@@ -73,7 +97,10 @@ requirejs(
 
       musicData = JSON.stringify(musicData);
       console.log("stringified musicData", musicData);
-      addMusic.addMusic(musicData);
+      addMusicFunction()
+        .then(function(){
+          console.log("music added with promises!!");
+        });
       $("#addTitle").val("");
       $("#addArtist").val("");
       $("#addAlbum").val("");
@@ -83,9 +110,21 @@ requirejs(
   $("#filter").on("click", function(){
     var selectedArtist = $("#selectedArtist").val();
     var selectedAlbum = $("#selectedAlbum").val();
-      filter.filterSongs (selectedArtist, selectedAlbum);
+    filter.filterAlbum (selectedAlbum);
+    filter.filterArtist (selectedArtist);
   });
     
+  $(document).on("click", '.delete', function() {
+    var deleteTitle = $(this).siblings('.title').text();
+    console.log("deleteTitle", deleteTitle);
+    var deleteHash = _.findKey(loadedSongs, {'title': deleteTitle});
+    console.log('loadedSongs', loadedSongs);
+    
+    console.log('deleteHash', deleteHash);
+
+
+    deleteButton.delete(deleteHash);
+  });  
 
 
   function hideSong() {

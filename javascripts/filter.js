@@ -1,22 +1,24 @@
-  define(function() {
+define(function() {
   
   return {
-    filterSongs: function (selectedartist, selectedalbum) {
+    filterArtist: function (selectedartist) {
       _.find($(".artist"), function(match){  
         if (selectedartist != $(match).text()) {
           $(match).parent().hide();
         } else {
           $(match).parent().show();
         }
-      }), "artist";
+      }, 'artist');
+    },
 
+    filterAlbum: function (selectedalbum) {
       _.find($(".album"), function(match){
         if (selectedalbum != $(match).text()) {
           $(match).parent().hide();
         } else {
           $(match).parent().show();
         }
-      }), "album";
+      }, 'album');
     }
   };
 });

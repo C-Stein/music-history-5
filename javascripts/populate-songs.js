@@ -1,17 +1,26 @@
-//The populate-songs file should contain the AJAX call to your first JSON file 
-// ith songs in it. This module should return the array of songs.
+// //The populate-songs file should contain the AJAX call to your first JSON file 
+// // ith songs in it. This module should return the array of songs.
 
 
-define(function() {
+define(["jquery", "q"], function($, Q) {
+
+  return function() {  
+    var deferred = Q.defer();
   
-  return {
+ 
 
-    loadMusic: function(callback)  {
+
       $.ajax({
-      url:"https://vivid-heat-717.firebaseio.com/.json"
+      url:"./javascripts/songs.json"
       }).done(function(data){
-      callback.call(this, data);
+        deferred.resolve(data);
+      })
+      .fail(function (xhr, status, error){
+        deferred.reject(error);
       });
-    }
+    
+  
+
+  return deferred.promise;
   };
 });
