@@ -9,9 +9,8 @@ define(["jquery", "q"], function($, Q) {
         method: "POST",
         data: newSong
       }).done(function(addedSong){
-          deffered.resolve(addedSong);
-      }).fail(function (xhr, status, error){
-          deferred.reject(error);
+          console.log("addedSong", addedSong);
+     
       });
       
     return deferred.promise;

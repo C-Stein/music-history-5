@@ -18,9 +18,35 @@ requirejs.config({
 
     var allSongsArray = [];
 requirejs(
-  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists", "populate-songs", "get-more-songs", "q", "deleteButton"], 
-  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique, populateSongs, getMoreSongs, Q, deleteButton) {
+  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists", "populate-songs", "get-more-songs", "q", "deleteButton", "authentication"], 
+  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique, populateSongs, getMoreSongs, Q, deleteButton, auth) {
     
+
+  var ref = new Firebase("https://vivid-heat-717.firebaseio.com");
+  var authData = ref.getAuth();
+
+  if (authData === null) {
+
+    ref.authWithOAuthPopup("github", function(error, authData) {
+      if (error) {
+        console.log("Login Failed!", error);
+      } else {
+        console.log("Authenticated successfully with payload:", authData);
+        auth.setUid(authData.uid)
+      }
+    });
+  } else {
+      auth.setUid(authData.uid);
+
+  }
+
+
+
+
+
+
+
+
     var firstListOfSongs = populateSongs();
     var allSongs = [];
     firstListOfSongs
@@ -86,21 +112,20 @@ requirejs(
 
   $("#addMusicButton").on("click", function(){
     var musicData = {};
-    var addMusicFunction = addMusic(musicData);
-    console.log( typeof addMusicFunction);
+    
+    console.log("auth.getUid", auth.getUid());
     //grab values from form and store in object
       musicData = {
         "title": $("#addTitle").val(),
         "artist": $("#addArtist").val(),
         "album": $("#addAlbum").val(),
+        "uid": auth.getUid()
       };
 
       musicData = JSON.stringify(musicData);
       console.log("stringified musicData", musicData);
-      addMusicFunction()
-        .then(function(){
-          console.log("music added with promises!!");
-        });
+      addMusic(musicData);
+
       $("#addTitle").val("");
       $("#addArtist").val("");
       $("#addAlbum").val("");
