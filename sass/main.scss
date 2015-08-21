@@ -91,6 +91,11 @@ form {
     background-color: $color4;
 }
 
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 @import 'nav';
 @import 'slider-styles';
 @import 'buttons';

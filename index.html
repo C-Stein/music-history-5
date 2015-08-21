@@ -51,9 +51,6 @@
     <div class="row">
       <div class="options col-sm-3">
         <form action="sing.html" method="POST">
-          <label for="songLength">Song Length:</label>
-          <br>
-          <input type="range" name="songLength">
           <label for="artist">Artist:</label>
           <div id="artistList">
           <select name="artist" id="selectedArtist" class="form-control">
@@ -69,22 +66,23 @@
             </select>
           </div>
           <label for="genre">Genre:</label>
-          <div class="row">  
-            <div class="check1 checkbox col-xs-6">
-              <input type="checkbox" name="Genre" value="rock"> Rock
-              <br>
-              <input type="checkbox" name="Genre" value="pop"> Pop
-              <br>
-              <input type="checkbox" name="Genre" value="blues"> Blues
+            <div class="row">  
+              <div class="check1 checkbox col-xs-6">
+                <input type="checkbox" name="Genre" value="rock"> Rock
+                <br>
+                <input type="checkbox" name="Genre" value="pop"> Pop
+                <br>
+                <input type="checkbox" name="Genre" value="blues"> Blues
+              </div>
+              <div class="placeholder"></div>
+              <div class="check2 checkbox col-xs-6">
+                <input type="checkbox" name="Genre" value="classical" class="check"> Classical
+                <br>
+                <input type="checkbox" name="Genre" value="jazz"> Jazz
+                <br>
+                <input type="checkbox" name="Genre" value="hipHop"> Hip Hop
+              </div>
             </div>
-            <div class="check2 checkbox col-xs-6">
-              <input type="checkbox" name="Genre" value="classical" class="check"> Classical
-              <br>
-              <input type="checkbox" name="Genre" value="jazz"> Jazz
-              <br>
-              <input type="checkbox" name="Genre" value="hipHop"> Hip Hop
-            </div>
-          </div>
           <br>
           <input type="button" value="Filter" id="filter" class="subBtn">
         </form>
