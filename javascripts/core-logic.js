@@ -6,6 +6,8 @@ define(function(require) {
   var addMusic = require("addMusic");
   var auth = require("authentication");
   var unique = require("uniqueLists");
+  var deleteButton = require("deleteButton");
+  var filter = require("filter");
 
 var currentUser = auth.getUid();
     var loadedSongs;
@@ -53,7 +55,6 @@ var currentUser = auth.getUid();
   $("#addMusicButton").on("click", function(){
     var musicData = {};
     
-    console.log("auth.getUid", auth.getUid());
     //grab values from form and store in object
       musicData = {
         "title": $("#addTitle").val(),
@@ -75,19 +76,14 @@ var currentUser = auth.getUid();
   $("#filter").on("click", function(){
     var selectedArtist = $("#selectedArtist").val();
     var selectedAlbum = $("#selectedAlbum").val();
-    filter.filterAlbum (selectedAlbum);
-    filter.filterArtist (selectedArtist);
+    filter.filterAlbum(selectedAlbum);
+    filter.filterArtist(selectedArtist);
   });
     
   $(document).on("click", '.delete', function() {
     var deleteTitle = $(this).siblings('.title').text();
     console.log("deleteTitle", deleteTitle);
     var deleteHash = _.findKey(loadedSongs, {'title': deleteTitle});
-    console.log('loadedSongs', loadedSongs);
-    
-    console.log('deleteHash', deleteHash);
-
-
     deleteButton.delete(deleteHash);
   });  
 
