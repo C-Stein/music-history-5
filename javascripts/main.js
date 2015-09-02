@@ -6,7 +6,9 @@ requirejs.config({
     'lodash': '/bower_components/lodash/lodash.min',
     'hbs': '../bower_components/require-handlebars-plugin/hbs',
     'bootstrap': '../bower_components/bootstrap/dist/js/bootstrap.min',
-    'q': '../bower_components/q/q'
+    'q': '../bower_components/q/q',
+    'es6': '../bower_components/requirejs-babel/es6',
+    'babel':'../bower_components/requirejs-babel/babel-5.8.22.min'
   },
   shim: {
     'bootstrap': ['jquery'],
@@ -18,8 +20,8 @@ requirejs.config({
 
     var allSongsArray = [];
 requirejs(
-  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists", "populate-songs", "get-more-songs", "q", "deleteButton", "authentication"], 
-  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique, populateSongs, getMoreSongs, Q, deleteButton, auth) {
+  ["jquery", "lodash", "hbs", "bootstrap", "addMusic", "firebase", "populate-songs", "q", "deleteButton", "authentication", "es6", "babel"], 
+  function($, _, Handlebars, bootstrap, addMusic, _firebase, populateSongs, Q, deleteButton, auth, es6, babel) {
     
 
   var ref = new Firebase("https://vivid-heat-717.firebaseio.com");

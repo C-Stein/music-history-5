@@ -5,24 +5,29 @@ define(function(require) {
   var firebase = require("firebase");
   var addMusic = require("addMusic");
   var auth = require("authentication");
-  var unique = require("uniqueLists");
+  var unique = require("es6!uniqueLists");
   var deleteButton = require("deleteButton");
   var filter = require("filter");
+  // // var getUniqueAlbumList = require("unique").getUniqueAlbumList;
+  // var getUniqueArtistList = require("es6!uniqueLists").getUniqueArtistList;
 
-var currentUser = auth.getUid();
+    var currentUser = auth.getUid();
     var loadedSongs;
     var myFirebaseRef = new Firebase("https://vivid-heat-717.firebaseio.com/");
     //changes your library on the fly when changes happen on firebase
     
+
+    console.log("getUniqueArtistList", unique.uniqueAlbum);
+
     myFirebaseRef.child('songs').orderByChild("uid").equalTo(currentUser).on("value", function(snapshot) {
    
       loadedSongs = snapshot.val();
       loadSongs(loadedSongs);
 
-      var uniqueAlbumList = unique.getUniqueAlbumList(snapshot);
+      var uniqueAlbumList = unique.uniqueAlbum(snapshot);
       loadAlbumList(uniqueAlbumList);
       
-      var uniqueArtistList = unique.getUniqueArtistList(snapshot);
+      var uniqueArtistList = unique.uniqueArtists(snapshot);
       loadArtistList(uniqueArtistList);
 
       for (var key in loadedSongs) {

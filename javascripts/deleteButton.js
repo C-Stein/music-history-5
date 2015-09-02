@@ -1,3 +1,6 @@
+// import * as firebase from "firebase";
+
+// export default function()
 
 define(["firebase"],function(_firebase) {
 

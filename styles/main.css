@@ -58,6 +58,10 @@ form {
   height: 60px;
   background-color: #ff3caa; }
 
+.checkbox {
+  margin-top: 10px;
+  margin-bottom: 10px; }
+
 .navbar-header, .navbar, .navbar-brand, .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
