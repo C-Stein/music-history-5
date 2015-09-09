@@ -35,7 +35,7 @@ var currentUser = auth.getUid();
     
     function loadSongs(data) {
       require(['hbs!../templates/songs'], function(songTemplate) {
-      $("#library").prepend(songTemplate({songs: data}));
+      $("#library").html(songTemplate({songs: data}));
       });
     }
       

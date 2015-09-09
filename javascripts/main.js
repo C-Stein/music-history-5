@@ -18,8 +18,8 @@ requirejs.config({
 
     var allSongsArray = [];
 requirejs(
-  ["jquery", "lodash", "hbs", "bootstrap", "dom-access", "addMusic", "firebase", "filter", "uniqueLists", "populate-songs", "get-more-songs", "q", "deleteButton", "authentication"], 
-  function($, _, Handlebars, bootstrap, dom, addMusic, _firebase, filter, unique, populateSongs, getMoreSongs, Q, deleteButton, auth) {
+  ["jquery", "lodash", "hbs", "bootstrap", "addMusic", "firebase", "filter", "uniqueLists", "populate-songs", "q", "deleteButton", "authentication"], 
+  function($, _, Handlebars, bootstrap, addMusic, _firebase, filter, unique, populateSongs, Q, deleteButton, auth) {
     
 
   var ref = new Firebase("https://vivid-heat-717.firebaseio.com");
