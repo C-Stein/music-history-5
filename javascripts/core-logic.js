@@ -17,8 +17,6 @@ define(function(require) {
     //changes your library on the fly when changes happen on firebase
     
 
-    console.log("getUniqueArtistList", unique.uniqueAlbum);
-
     myFirebaseRef.child('songs').orderByChild("uid").equalTo(currentUser).on("value", function(snapshot) {
    
       loadedSongs = snapshot.val();
